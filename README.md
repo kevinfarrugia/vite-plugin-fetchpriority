@@ -1,5 +1,7 @@
 # vite-plugin-fetchpriority
 
+[![NPM version](https://img.shields.io/npm/v/vite-plugin-fetchpriority)](https://www.npmjs.com/package/vite-plugin-fetchpriority) [![node-current](https://img.shields.io/node/v/vite-plugin-fetchpriority)](https://nodejs.org/) 
+
 Vite plugin to add the `fetchpriority` attribute to scripts, stylesheets, and link rel="preload".
 
 ## Installation
@@ -84,6 +86,7 @@ The files to add the `fetchpriority` attribute to. The `type` is used to determi
 The Fetch Priority API can be useful for improving the performance of websites by giving the browser hints on which resources to prioritize. This plugin allows you to add the `fetchpriority` attribute to resources created in your Vite build and not accessible in the HTML.
 
 Read more:
+
 - [Optimizing resource loading with the Fetch Priority API](https://web.dev/articles/fetch-priority)
 - [Fetch Priority and optimizing LCP](https://imkev.dev/fetchpriority-opportunity)
 

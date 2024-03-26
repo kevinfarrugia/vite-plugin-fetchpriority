@@ -1,6 +1,6 @@
 import type { Plugin } from "vite";
 
-interface FetchPriorityOptionsFiles {
+export interface FetchPriorityOptionsFiles {
   /**
    * HTML element type
    */
@@ -11,7 +11,7 @@ interface FetchPriorityOptionsFiles {
   match?: RegExp;
 }
 
-type FetchPriorityOptions = {
+export type FetchPriorityOptions = {
   priority: "high" | "low";
   files: FetchPriorityOptionsFiles[];
 };

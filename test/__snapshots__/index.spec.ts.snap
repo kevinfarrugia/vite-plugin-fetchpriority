@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`fetchPriority > should add fetchpriority=high to all script tags 1`] = `
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/test.css" />
+    <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js" fetchpriority="high"></script>
+  </head>
+  <body>
+    <h1>Test App</h1>
+  </body>
+</html>"
+`;
+
+exports[`fetchPriority > should add fetchpriority=high to link rel=preload 1`] = `
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/test.css" />
+    <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" / fetchpriority="high">
+    <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" / fetchpriority="high">
+    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+  </head>
+  <body>
+    <h1>Test App</h1>
+  </body>
+</html>"
+`;
+
+exports[`fetchPriority > should add fetchpriority=high to style tags 1`] = `
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/app.css" / fetchpriority="high">
+    <link rel="stylesheet" href="/test.css" / fetchpriority="high">
+    <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+  </head>
+  <body>
+    <h1>Test App</h1>
+  </body>
+</html>"
+`;
+
+exports[`fetchPriority > should add fetchpriority=high to style tags that match RegEx 1`] = `
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/test.css" / fetchpriority="high">
+    <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+  </head>
+  <body>
+    <h1>Test App</h1>
+  </body>
+</html>"
+`;
+
+exports[`fetchPriority > should add fetchpriority=low to style tags that match RegEx 1`] = `
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/test.css" / fetchpriority="low">
+    <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+  </head>
+  <body>
+    <h1>Test App</h1>
+  </body>
+</html>"
+`;
