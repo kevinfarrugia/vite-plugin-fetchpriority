@@ -54,9 +54,14 @@ The output of the above configuration will be:
 <head>
   <title>Demo</title>
   <link rel="stylesheet" href="/app.css" />
+  <script type="module" src="/framework.js"></script>
+-  <script type="module" src="/app.js"></script>
 +  <script type="module" src="/app.js" fetchpriority="high"></script>
+-  <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
 +  <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" fetchpriority="high" />
+-  <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
 +  <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" fetchpriority="high" />
+
 </head>
 ```
 
