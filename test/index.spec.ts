@@ -9,6 +9,19 @@ async function buildVite(options: FetchPriorityOptions[]) {
   const { output } = (await build({
     root: resolve(__dirname, "./fixtures"),
     plugins: [fetchPriority(options)],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            // separate chunk for each file
+            if (id.endsWith(".js")) {
+              return id.split("/").pop()?.replace(".js", "");
+            }
+            return null;
+          },
+        },
+      },
+    },
   })) as RollupOutput;
 
   const { source: indexSource } = output.find(
@@ -19,6 +32,24 @@ async function buildVite(options: FetchPriorityOptions[]) {
 }
 
 describe("fetchPriority", () => {
+  test("should not add fetchpriority attribute if no matching files are found", async () => {
+    const options: FetchPriorityOptions[] = [
+      {
+        priority: "high",
+        files: [
+          {
+            type: "script",
+            match: /nonexistent/,
+          },
+        ],
+      },
+    ];
+
+    await buildVite(options).then((result) => {
+      expect(result).toMatchSnapshot();
+    });
+  });
+
   test("should add fetchpriority=high to all script tags", async () => {
     const options: FetchPriorityOptions[] = [
       {
@@ -103,6 +134,55 @@ describe("fetchPriority", () => {
       {
         priority: "high",
         files: [
+          {
+            type: "preload",
+          },
+        ],
+      },
+    ];
+
+    await buildVite(options).then((result) => {
+      expect(result).toMatchSnapshot();
+    });
+  });
+
+  test("should handle multiple priorities for the same file type", async () => {
+    const options: FetchPriorityOptions[] = [
+      {
+        priority: "high",
+        files: [
+          {
+            type: "script",
+          },
+        ],
+      },
+      {
+        priority: "low",
+        files: [
+          {
+            type: "script",
+            match: /random/,
+          },
+        ],
+      },
+    ];
+
+    await buildVite(options).then((result) => {
+      expect(result).toMatchSnapshot();
+    });
+  });
+
+  test("should add fetchpriority=high to multiple file types", async () => {
+    const options: FetchPriorityOptions[] = [
+      {
+        priority: "high",
+        files: [
+          {
+            type: "script",
+          },
+          {
+            type: "style",
+          },
           {
             type: "preload",
           },

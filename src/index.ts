@@ -48,11 +48,16 @@ const fetchPriority = (options: FetchPriorityOptions[]): Plugin => ({
                   return tag;
                 }
 
-                // replace each tag with itself and add the fetchpriority attribute
-                return tag.replace(
-                  "></script>",
-                  ` fetchpriority="${option.priority}"></script>`
-                );
+                // replace or add fetchpriority attribute
+                return tag.includes("fetchpriority=")
+                  ? tag.replace(
+                      /fetchpriority=["'].*?["']/,
+                      `fetchpriority="${option.priority}"`
+                    )
+                  : tag.replace(
+                      "></script>",
+                      ` fetchpriority="${option.priority}"></script>`
+                    );
               });
             }
           } else if (file.type === "style") {
@@ -62,7 +67,6 @@ const fetchPriority = (options: FetchPriorityOptions[]): Plugin => ({
             const tags = html.match(styleRegex);
 
             if (tags) {
-              // replace each tag with itself and add the fetchpriority attribute
               formattedHtml = formattedHtml.replace(styleRegex, (tag) => {
                 // if tag does not have href attribute, return the tag as is
                 const hrefMatch = tag.match(/href=["'].+["']/);
@@ -77,8 +81,16 @@ const fetchPriority = (options: FetchPriorityOptions[]): Plugin => ({
                   return tag;
                 }
 
-                // replace each tag with itself and add the fetchpriority attribute
-                return tag.replace(">", ` fetchpriority="${option.priority}">`);
+                // replace or add fetchpriority attribute
+                return tag.includes("fetchpriority=")
+                  ? tag.replace(
+                      /fetchpriority=["'].*?["']/,
+                      `fetchpriority="${option.priority}"`
+                    )
+                  : tag.replace(
+                      ">",
+                      ` fetchpriority="${option.priority}">`
+                    );
               });
             }
           } else if (file.type === "preload") {
@@ -102,8 +114,16 @@ const fetchPriority = (options: FetchPriorityOptions[]): Plugin => ({
                   return tag;
                 }
 
-                // replace each tag with itself and add the fetchpriority attribute
-                return tag.replace(">", ` fetchpriority="${option.priority}">`);
+                // replace or add fetchpriority attribute
+                return tag.includes("fetchpriority=")
+                  ? tag.replace(
+                      /fetchpriority=["'].*?["']/,
+                      `fetchpriority="${option.priority}"`
+                    )
+                  : tag.replace(
+                      ">",
+                      ` fetchpriority="${option.priority}">`
+                    );
               });
             }
           }

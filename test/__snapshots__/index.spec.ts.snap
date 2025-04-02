@@ -11,7 +11,9 @@ exports[`fetchPriority > should add fetchpriority=high to all script tags 1`] = 
     <link rel="stylesheet" href="/test.css" />
     <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
     <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
-    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js" fetchpriority="high"></script>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js" fetchpriority="high"></script>
+    <script type="module" crossorigin src="/assets/app-l0sNRNKZ.js" fetchpriority="high"></script>
+    <script type="module" crossorigin src="/assets/random-DnnRr8WQ.js" fetchpriority="high"></script>
   </head>
   <body>
     <h1>Test App</h1>
@@ -30,7 +32,30 @@ exports[`fetchPriority > should add fetchpriority=high to link rel=preload 1`] =
     <link rel="stylesheet" href="/test.css" />
     <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" / fetchpriority="high">
     <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" / fetchpriority="high">
-    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/app-l0sNRNKZ.js"></script>
+    <script type="module" crossorigin src="/assets/random-DnnRr8WQ.js"></script>
+  </head>
+  <body>
+    <h1>Test App</h1>
+  </body>
+</html>"
+`;
+
+exports[`fetchPriority > should add fetchpriority=high to multiple file types 1`] = `
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/app.css" / fetchpriority="high">
+    <link rel="stylesheet" href="/test.css" / fetchpriority="high">
+    <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" / fetchpriority="high">
+    <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" / fetchpriority="high">
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js" fetchpriority="high"></script>
+    <script type="module" crossorigin src="/assets/app-l0sNRNKZ.js" fetchpriority="high"></script>
+    <script type="module" crossorigin src="/assets/random-DnnRr8WQ.js" fetchpriority="high"></script>
   </head>
   <body>
     <h1>Test App</h1>
@@ -49,7 +74,9 @@ exports[`fetchPriority > should add fetchpriority=high to style tags 1`] = `
     <link rel="stylesheet" href="/test.css" / fetchpriority="high">
     <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
     <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
-    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/app-l0sNRNKZ.js"></script>
+    <script type="module" crossorigin src="/assets/random-DnnRr8WQ.js"></script>
   </head>
   <body>
     <h1>Test App</h1>
@@ -68,7 +95,9 @@ exports[`fetchPriority > should add fetchpriority=high to style tags that match 
     <link rel="stylesheet" href="/test.css" / fetchpriority="high">
     <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
     <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
-    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/app-l0sNRNKZ.js"></script>
+    <script type="module" crossorigin src="/assets/random-DnnRr8WQ.js"></script>
   </head>
   <body>
     <h1>Test App</h1>
@@ -87,7 +116,51 @@ exports[`fetchPriority > should add fetchpriority=low to style tags that match R
     <link rel="stylesheet" href="/test.css" / fetchpriority="low">
     <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
     <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
-    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/app-l0sNRNKZ.js" fetchpriority="high"></script>
+    <script type="module" crossorigin src="/assets/random-DnnRr8WQ.js"></script>
+  </head>
+  <body>
+    <h1>Test App</h1>
+  </body>
+</html>"
+`;
+
+exports[`fetchPriority > should handle multiple priorities for the same file type 1`] = `
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/test.css" />
+    <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js" fetchpriority="high"></script>
+    <script type="module" crossorigin src="/assets/app-l0sNRNKZ.js" fetchpriority="high"></script>
+    <script type="module" crossorigin src="/assets/random-DnnRr8WQ.js" fetchpriority="low"></script>
+  </head>
+  <body>
+    <h1>Test App</h1>
+  </body>
+</html>"
+`;
+
+exports[`fetchPriority > should not add fetchpriority attribute if no matching files are found 1`] = `
+"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/test.css" />
+    <link rel="preload" href="/roboto.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/roboto-semibold.woff2" type="font/woff2" as="font" crossorigin="anonymous" />
+    <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/assets/app-l0sNRNKZ.js"></script>
+    <script type="module" crossorigin src="/assets/random-DnnRr8WQ.js"></script>
   </head>
   <body>
     <h1>Test App</h1>
